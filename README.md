@@ -1,5 +1,16 @@
-# LeetCode
-Practice business interview 
+# LeetCode規劃
+#### LEETCODE PATTERNS
+https://hackmd.io/oMvSnRW4S4OQbghaqaik6A
+#### 從LeetCode學演算法
+https://medium.com/@desolution
+
+#### Leetcode筆記
+https://hackmd.io/U5azKxBhR1e8Z7RWTzAtLQ#3%E8%B2%AA%E5%BF%83%E7%B3%BB%E5%88%97
+https://medium.com/@afly.bsky/leetcode%E7%B7%B4%E7%BF%92-3f5ad218fae4
+
+#### Leetcode 经典题目
+https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md
+
 # 程式題
 #### 1) reverse string
 #### 2) merge intervals (第一類)
@@ -53,4 +64,3 @@ Practice business interview
     ex: "evil" v.s "viel" => true
 
 # ----------------------------------------------------
-https://hackmd.io/xWA3ohZ-RqyRfm_QpvfAgA

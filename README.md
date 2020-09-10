@@ -208,12 +208,87 @@ https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 #### 17) 給一個singly linked list，找出middle value(延伸：是否能夠用one-path的方法)
 ![](https://i.imgur.com/PoTkwXx.png)
 https://leetcode.com/problems/middle-of-the-linked-list/
+##### 先找出mid index後指定輸出mid index後的串列
+    # Definition for singly-linked list.
+    # class ListNode(object):
+    #     def __init__(self, val=0, next=None):
+    #         self.val = val
+    #         self.next = next
+    class Solution(object):
+        def middleNode(self, head):
+            """
+            :type head: ListNode
+            :rtype: ListNode
+            """
+            l = []
+            p1 = head
+            while(p1 != None):
+                l.append(p1.val)
+                p1 = p1.next
+
+            m = int(0.5*(len(l)))        
+            i = 0
+            p2 = head
+            while(p2 != None and i < m):
+                p2 = p2.next
+                i += 1
+            return p2
+        
 #### 18) given a binary search tree，判斷其是否對稱
 ![](https://i.imgur.com/FH13YGE.png)
 https://leetcode.com/problems/balanced-binary-tree/
+##### 遞迴檢查根節點
+    # Definition for a binary tree node.
+    # class TreeNode(object):
+    #     def __init__(self, val=0, left=None, right=None):
+    #         self.val = val
+    #         self.left = left
+    #         self.right = right
+    class Solution(object):
+        def isBalanced(self, root):
+            """
+            :type root: TreeNode
+            :rtype: bool
+            """
+            def height(root):
+                if root == None: # 沒東西，表示平衡為0
+                    return 0
+                else:
+                    l_height = height(root.left)
+                    r_height = height(root.right)
+                    # 不平衡之條件,不平衡為-1
+                    if l_height == -1 or r_height == -1 or abs(l_height-r_height) > 1:
+                        return -1
+                    else:
+                        return 1 + max(l_height,r_height)  # 計算當前root高度    
+            return height(root) != -1 # 遞迴判斷root有無不平衡
+
 #### 19) given two sorted array, merge the second one into the first one
     ex: [1,3,5,0,0] & [2,4] => [1,2,3,4,5]
 https://leetcode.com/problems/merge-sorted-array/
+##### 看到洞洞就把它換成list2的值
+    class Solution(object):
+        def merge(self, nums1, m, nums2, n):
+            """
+            :type nums1: List[int]
+            :type m: int
+            :type nums2: List[int]
+            :type n: int
+            :rtype: None Do not return anything, modify nums1 in-place instead.
+            """
+            def check(item):
+                if item == 0:
+                    return True
+            if len(nums2) == 0 : return nums1
+            p = 0
+            for idx, item in enumerate(nums1):
+                if check(item):
+                    nums1[idx] = nums2[p]
+                    p += 1
+                    if p >= len(nums2): break
+            nums1.sort()
+            return nums1
+             
 #### 20) 用linked list實作queue
 ![](https://i.imgur.com/36Kz5QP.png)
 

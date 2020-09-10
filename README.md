@@ -123,8 +123,21 @@ https://leetcode.com/problems/reverse-linked-list/
 #### 10) 交錯數字
     ex: [1,2,3,4,5,6,7,8] => [1,5,2,6,3,7,4,8]
 https://stackoverflow.com/questions/7946798/interleave-multiple-lists-of-the-same-length-in-python
-#### 11) 1代表陸地，0代表水，4-connectivity，given a 2-d array with only 0s and
-    1s, find the max land area
+##### zip綁定兩串列為dict-key-val
+    class Solution(object):
+            def interleavedNumber(self, nums):
+                """
+                :type nums: List[int]
+                :rtype: List[int]
+                """
+                a_list = nums[:int(0.5*len(nums))]
+                b_list = nums[int(0.5*len(nums)):]
+                c_list = []
+                for (i,j) in zip(a_list,b_list):
+                  c_list.append(i)
+                  c_list.append(j)
+                return c_list
+#### 11) 1代表陸地，0代表水，4-connectivity，given a 2-d array with only 0s and 1s, find the max land area
     ex:
     0011
     1001  => max land area: 5
@@ -133,15 +146,65 @@ https://stackoverflow.com/questions/7946798/interleave-multiple-lists-of-the-sam
 #### 13) 實作doubly linked list (包含從頭insert、從尾端insert、找出目標value在linked list中的位置等等)
 ![](https://i.imgur.com/VqpmyLP.png)
 
-#### 14) 實作candy crush (三個以上可以消掉，一次消一組)
+#### 14) 實作candy crush (三個以上可以消掉，一次消一組) - Medium
     ex: [1,2,2,3,3,3,2,5,5] => [1,5,5]
 http://shibaili.blogspot.com/2019/01/723-candy-crush.html
 #### 15) merge兩個binary search tree成一個
 ![](https://i.imgur.com/4zhxXn4.png)
 https://leetcode.com/problems/merge-two-binary-trees/
+##### 使用遞迴合併相加左右節點值
+    # Definition for a binary tree node.
+    # class TreeNode(object):
+    #     def __init__(self, val=0, left=None, right=None):
+    #         self.val = val
+    #         self.left = left
+    #         self.right = right
+    class Solution(object):
+        def mergeTrees(self, t1, t2):
+            """
+            :type t1: TreeNode
+            :type t2: TreeNode
+            :rtype: TreeNode
+            """
+            # 輸入兩個二元樹，並合併兩個二元樹中每個相對應的結點。
+
+            # 若兩個樹都不存在則值接返回空。
+            # 若一個存在而另一不存在則直接返回存在的樹，無須合併。
+            # 若兩個樹都存在則合併目前節點的值，然後呼叫同個方法，分別合併左子節點及右子節點。
+            # 分別將合併好的回傳左右節點放至父節點。
+
+            if not t1:
+                return t2
+            elif not t2:
+                return t1
+            else:
+                sum = TreeNode(t1.val + t2.val)
+                sum.left = self.mergeTrees(t1.left,t2.left)
+                sum.right = self.mergeTrees(t1.right,t2.right)
+            return sum
+
 #### 16) 給一個已經sort過的array，build一個binary search tree且要考慮biased的問題(Convert Sorted Array to Binary Search Tree)
 ![](https://i.imgur.com/yHpntec.png)
 https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+##### 使用遞迴處理左右子樹及中位節點
+    # Definition for a binary tree node.
+    # class TreeNode(object):
+    #     def __init__(self, val=0, left=None, right=None):
+    #         self.val = val
+    #         self.left = left
+    #         self.right = right
+    class Solution(object):
+        def sortedArrayToBST(self, nums):
+            """
+            :type nums: List[int]
+            :rtype: TreeNode
+            """
+            if len(nums) == 0: return None
+            mid = int(0.5*len(nums))
+            root = TreeNode(nums[mid])
+            root.left = self.sortedArrayToBST(nums[:mid])
+            root.right = self.sortedArrayToBST(nums[mid+1:])
+            return root
 #### 17) 給一個singly linked list，找出middle value(延伸：是否能夠用one-path的方法)
 ![](https://i.imgur.com/PoTkwXx.png)
 https://leetcode.com/problems/middle-of-the-linked-list/

@@ -1,6 +1,6 @@
 # LeetCode規劃
 #### LEETCODE PATTERNS
-https://hackmd.io/oMvSnRW4S4OQbghaqaik6A
+https://seanprashad.com/leetcode-patterns/
 #### 從LeetCode學演算法
 https://medium.com/@desolution
 

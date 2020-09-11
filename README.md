@@ -301,7 +301,7 @@ https://leetcode.com/problems/merge-sorted-array/
       1 2 1
      1 3 3 1
     1 4 6 4 1   (row 4)
-#### 22) given an unsorted array, find the number that is closet to a given target
+#### 22) given an unsorted array, find the number that is closet to a given target - Medium
     ex: {1,3,6,8,11,2,5}
     target: 6 => result: 6
     target:12 => result: 11
@@ -309,5 +309,21 @@ https://leetcode.com/problems/find-k-closest-elements/
 #### 23) check if two strings are anagram
     ex: "evil" v.s "viel" => true
 https://leetcode.com/problems/valid-anagram/
+##### 判斷是否由相同字串組成
+    class Solution(object):
+        def isAnagram(self, s, t):
+            """
+            :type s: str
+            :type t: str
+            :rtype: bool
+            """
+            if len(s)!= len(t): return False
+            s = list(s)
+            t = list(t)
+
+            for item in s:
+                if item in t: t.remove(item)
+            if len(t)==0: return True
+            else: return False
 # ----------------------------------------------------
 https://hackmd.io/xWA3ohZ-RqyRfm_QpvfAgA?both

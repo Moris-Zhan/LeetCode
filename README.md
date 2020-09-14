@@ -325,5 +325,12 @@ https://leetcode.com/problems/valid-anagram/
                 if item in t: t.remove(item)
             if len(t)==0: return True
             else: return False
+            
+#### 24) Maximum Depth of Binary Tree
+Given a binary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+![](https://i.imgur.com/afe26sy.png)
+https://leetcode.com/problems/maximum-depth-of-binary-tree/
 # ----------------------------------------------------
 https://hackmd.io/xWA3ohZ-RqyRfm_QpvfAgA?both

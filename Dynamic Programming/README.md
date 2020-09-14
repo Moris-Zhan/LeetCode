@@ -1,1 +1,1 @@
-# Arrays
+# Dynamic Programming

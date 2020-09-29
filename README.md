@@ -88,6 +88,34 @@ https://leetcode.com/problems/missing-number/
     String to Integer (atoi)
     Input: "42"
     Output: 42
+    
+    class Solution(object):
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """    
+        str = str.strip()
+        if len(str) == 0: return 0
+        sign = str[0]
+        tmp = "0"
+        result = 0
+        i = 0                 # 預設處理位置從0開始
+        if sign in ['+','-']: # 如果第1位為sign直接append進待處理字串
+            tmp = sign
+            i = 1             # 並將處理位置設定從1開始
+        for i in xrange(i, len(str)):
+            if str[i].isdigit():
+                tmp += str[i]
+            else:
+                break         # atoi輸出前面可轉成數值的字串
+                
+        if len(tmp) > 1: result = int(tmp)  # 去除小數點後位        
+        return max(-2**31, min(result,2**31-1))
+
+        
+
+       
 https://leetcode.com/problems/string-to-integer-atoi/
 #### 9) reverse linked list (in-place)
     Input: 1->2->3->4->5->NULL

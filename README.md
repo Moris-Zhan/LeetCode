@@ -85,9 +85,8 @@ https://leetcode.com/problems/missing-number/
             mis = set([i for i in range(0,max_val)]).difference(nums)
             return list(mis)[0]
 #### 8) 實作atoi - Medium
-    String to Integer (atoi)
-    Input: "42"
-    Output: 42
+![](https://i.imgur.com/RLInYU4.png)
+
     
     class Solution(object):
     def myAtoi(self, str):

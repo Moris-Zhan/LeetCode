@@ -2,7 +2,7 @@
 #### LEETCODE PATTERNS
 https://seanprashad.com/leetcode-patterns/
 #### 從LeetCode學演算法
-https://medium.com/@desolution
+https://desolve.medium.com/%E5%BE%9Eleetcode%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-0-6c121bd8b579
 
 #### Leetcode筆記
 https://hackmd.io/U5azKxBhR1e8Z7RWTzAtLQ#3%E8%B2%AA%E5%BF%83%E7%B3%BB%E5%88%97
